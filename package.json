@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "description": "Node version manager...a clone of n but in node",
   "main": "index.js",
+  "bin": "index.js",
   "dependencies": {
     "colors": "~0.6.2",
     "inquirer": "~0.4.1",
