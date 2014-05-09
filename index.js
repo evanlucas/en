@@ -11,7 +11,6 @@ var colors = require('colors')
   , tar = require('tar')
   , log = require('npmlog')
   , ncp = require('ncp').ncp
-  , stdio = process.binding('stdio')
   , zlib = require('zlib')
   , chain = require('slide').chain
   , asyncMap = require('slide').asyncMap
@@ -268,7 +267,8 @@ function execute_with_version() {
   if (fs.existsSync(node)) {
     var child = spawn(node, args, {
       env: process.env,
-      cwd: process.cwd()
+      cwd: process.cwd(),
+      stdio: 'inherit'
     })
     child.stdout.pipe(process.stdout)
     child.stderr.pipe(process.stderr)
